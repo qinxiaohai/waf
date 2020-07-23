@@ -1,3 +1,7 @@
+# 					Web 防火墙
+
+# 
+
 ##ngx_lua_waf
 
 ngx_lua_waf是我刚入职趣游时候开发的一个基于ngx_lua的web应用防火墙。
@@ -54,18 +58,18 @@ http {
 
 ```ini
 RulePath = "/etc/nginx/conf/waf/wafconf/"	#--规则存放目录
-attacklog = "on"        #开启攻击记录
+attacklog = "on"       			 #开启攻击记录
 logdir = "/usr/local/nginx/logs/hack/"
-UrlDeny="on"            #是否拦截url访问
-Redirect="on"           #是否拦截后重定向
-CookieMatch="on"        #是否拦截cookie攻击
-postMatch="on"          #是否拦截post攻击
-whiteModule="on"        #是否开启URL白名单
+UrlDeny="on"            		#是否拦截url访问
+Redirect="on"          			 #是否拦截后重定向
+CookieMatch="on"       			 #是否拦截cookie攻击
+postMatch="on"         			 #是否拦截post攻击
+whiteModule="on"       			 #是否开启URL白名单
 black_fileExt={"php","jsp"}     #填写不允许上传文件后缀类型
 ipWhitelist={"127.0.0.1"}       #ip白名单，多个ip用逗号分隔
 ipBlocklist={"1.0.0.1"}         #ip黑名单，多个ip用逗号分隔
-CCDeny="on"     #是否开启拦截cc攻击(需要nginx.conf的http段增加lua_shared_dict limit 10m;)
-CCrate="100/60" #设置cc攻击频率，单位为秒.例：默认1分钟同一个IP只能请求同一个地址100次
+CCDeny="on"     				#是否开启拦截cc攻击(需要nginx.conf的http段增加lua_shared_dict limit 10m;)
+CCrate="100/60" 				#设置cc攻击频率，单位为秒.例：默认1分钟同一个IP只能请求同一个地址100次
 
 ```
 
@@ -81,6 +85,10 @@ http://xxxx/test.php?id=../etc/passwd
 ```
 
 
+
+如果检测有攻击行为提示用户
+
+![sec](https://github.com/qinxiaohai/tp/blob/master/Snipaste_2020-07-23_17-57-40.png?raw=true)
 
 ![sec](https://github.com/qinxiaohai/tp/blob/master/tttttttttttttt.png?raw=true)
 
